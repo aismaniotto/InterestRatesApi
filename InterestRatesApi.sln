@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestRatesApi", "Interes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateInterestApi", "CalculateInterestApi\CalculateInterestApi.csproj", "{1514C20C-F49F-4EEC-A60C-58729B021072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestRates.Tests", "InterestRates.Tests\InterestRates.Tests.csproj", "{574731BC-CAAF-4C82-B13E-E85734BF60BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1514C20C-F49F-4EEC-A60C-58729B021072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1514C20C-F49F-4EEC-A60C-58729B021072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1514C20C-F49F-4EEC-A60C-58729B021072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574731BC-CAAF-4C82-B13E-E85734BF60BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574731BC-CAAF-4C82-B13E-E85734BF60BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574731BC-CAAF-4C82-B13E-E85734BF60BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574731BC-CAAF-4C82-B13E-E85734BF60BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
