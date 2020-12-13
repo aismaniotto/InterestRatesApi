@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CalculateInterestApi.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CalculateInterestApi.Controllers
@@ -18,16 +19,24 @@ namespace CalculateInterestApi.Controllers
         }
 
         [HttpGet]
-        public async Task<double> Get(double initValue, int months)
+        public async Task<IActionResult> Get(double initValue, int months)
         {
-            var interestRates = await _interestRatesService.GetInterestRates();
+            double interestRates; ;
+            try
+            {
+                interestRates = await _interestRatesService.GetInterestRates();
+            }
+            catch
+            {
+                return BadRequest(StatusCode(500, "Internal server error"));
+            }
             var value = initValue * Math.Pow((1 + interestRates), months);
 
             // truncate the value
             double mult = Math.Pow(10, 2);
             double result = Math.Truncate(mult * value) / mult;
 
-            return result;
+            return Ok(result);
         }
     }
 }
