@@ -21,7 +21,13 @@ namespace CalculateInterestApi.Controllers
         public async Task<double> Get(double initValue, int months)
         {
             var interestRates = await _interestRatesService.GetInterestRates();
-            return initValue * Math.Pow((1 + interestRates), months);
+            var value = initValue * Math.Pow((1 + interestRates), months);
+
+            // truncate the value
+            double mult = Math.Pow(10, 2);
+            double result = Math.Truncate(mult * value) / mult;
+
+            return result;
         }
     }
 }
