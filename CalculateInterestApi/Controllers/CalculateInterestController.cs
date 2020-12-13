@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using CalculateInterestApi.Services;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CalculateInterestApi.Controllers
 {
@@ -12,10 +9,19 @@ namespace CalculateInterestApi.Controllers
     [Route("[controller]")]
     public class CalculateInterestController : ControllerBase
     {
-        [HttpGet]
-        public double Get(double initValue, int months)
+        private readonly IInterestRatesService _interestRatesService;
+
+
+        public CalculateInterestController(IInterestRatesService interestRatesService)
         {
-            return initValue * Math.Pow((1 + 0.01), months);
+            _interestRatesService = interestRatesService;
+        }
+
+        [HttpGet]
+        public async Task<double> Get(double initValue, int months)
+        {
+            var interestRates = await _interestRatesService.GetInterestRates();
+            return initValue * Math.Pow((1 + interestRates), months);
         }
     }
 }
