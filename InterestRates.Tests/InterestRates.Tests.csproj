@@ -14,9 +14,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InterestRatesApi\InterestRatesApi.csproj" />
+    <ProjectReference Include="..\CalculateInterestApi\CalculateInterestApi.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="InterestRatesApi\" />
     <Folder Include="InterestRatesApi\Controllers\" />
+    <Folder Include="CalculateInterestApi\" />
+    <Folder Include="CalculateInterestApi\Controllers\" />
   </ItemGroup>
 </Project>
