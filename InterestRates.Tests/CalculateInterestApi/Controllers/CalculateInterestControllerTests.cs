@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using CalculateInterestApi.Controllers;
 using CalculateInterestApi.Mocks;
 using NUnit.Framework;
@@ -16,10 +16,10 @@ namespace InterestRates.Tests.CalculateInterestApi.Controllers
         }
 
         [Test]
-        public void Should_Return_The_Interest_Rates_Acording_The_Parameters()
+        public async Task Should_Return_The_Interest_Rates_Acording_The_Parameters()
         {
-            Assert.AreEqual(105.1, Controller.Get(100, 5));
-            Assert.AreEqual(563.41, Controller.Get(500, 12));
+            Assert.AreEqual(105.10, await Controller.Get(100, 5));
+            Assert.AreEqual(563.41, await Controller.Get(500, 12));
         }
     }
 }
